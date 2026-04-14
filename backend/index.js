@@ -1,8 +1,11 @@
 const express = require('express')
 const morgan = require('morgan')
 const app = express();
+const core = require('cors')
+app.use(core())
 
 app.use(express.json())
+app.use(express.static('dist'))
 
 // 创建自定义的 Morgan token 来显示请求体
 morgan.token('post-data', (req) => {
